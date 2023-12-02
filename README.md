@@ -31,11 +31,11 @@ final view = OperatorPickerWidget(
     isPayIn: true,
     countryCode: Country.CI,
     customer: Customer(
-        firstName: "Ange",
-        lastName: "Bagui",
+        firstName: "Paul",
+        lastName: "Koffi",
         photoUrl: "https://i.imgur.com/dAApjNt.jpg",
         dialCode: "225",
-        phoneNumber: "0556888385",
+        phoneNumber: "0500000000",
         email: "angebagui@gmail.com"
     ),
 );
@@ -136,11 +136,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 isPayIn: true,
                 countryCode: Country.CI,
                 customer: Customer(
-                    firstName: "Ange",
-                    lastName: "Bagui",
+                    firstName: "Paul",
+                    lastName: "Koffi",
                     photoUrl: "https://i.imgur.com/dAApjNt.jpg",
                     dialCode: "225",
-                    phoneNumber: "0556888385",
+                    phoneNumber: "0500000000",
                     email: "angebagui@gmail.com"
                 ),
               ))
