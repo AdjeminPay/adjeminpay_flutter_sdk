@@ -68,7 +68,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 clientId: dotenv.env['CLIENT_ID']!,
                 clientSecret: dotenv.env['CLIENT_SECRET']!,
                 title: 'Payer une commande',
-                description: 'Paiement apport initial',
+                description: 'Paiement Facture',
                 amount: 100,
                 currencyCode: "XOF",
                 merchantTransactionId: merchantTransId,
