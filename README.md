@@ -25,6 +25,7 @@ final view = OperatorPickerWidget(
     description: 'Payer une commande',
     amount: 100,
     merchantTransactionId: uuid.v4(),
+    merchantTransactionData:null,
     webhookUrl:"https://your-webhook-url/v1/customers/payments/callback",
     returnUrl:"https://your-return-url",
     cancelUrl:"https://your-cancel-url",
