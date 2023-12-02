@@ -2,18 +2,18 @@
 
 Gateway sdk to allow payment and transfer in Adjemin app
 
-<img src="https://github.com/adjemin/gateway_flutter_sdk/blob/81b900f5e1053607795720f2df70c3729ee4e1b5/picture/payment.png" alt="screenshot"/>
+<img src="https://github.com/AdjeminPay/adjeminpay_flutter_sdk/blob/81b900f5e1053607795720f2df70c3729ee4e1b5/picture/payment.png" alt="screenshot"/>
 
 ## 1. Add the package to your project
-Add the adjemin_gateway_sdk package as a dependancy in your `pubspec.yaml` file.
+Add the adjeminpay_flutter_sdk package as a dependancy in your `pubspec.yaml` file.
 
 ```yaml
     dependencies:
     flutter:
         sdk: flutter
-    adjemin_gateway_sdk:
+    adjeminpay_flutter_sdk:
       git:
-        url: https://github.com/adjemin/gateway_flutter_sdk.git
+        url: https://github.com/AdjeminPay/adjeminpay_flutter_sdk.git
         ref: main
 ```
 ## 3. How to use
@@ -21,7 +21,7 @@ You must use `OperatorPickerWidget`
 ```dart
 import 'package:adjeminpay_flutter_sdk/adjeminpay_flutter_sdk.dart';
 
-OperatorPickerWidget(
+final view = OperatorPickerWidget(
     clientId: 'CLIENT_ID',
     clientSecret: 'CLIENT_SECRET',
     title: 'Payer une commande',
@@ -41,7 +41,7 @@ OperatorPickerWidget(
         phoneNumber: "0556888385",
         email: "angebagui@gmail.com"
     ),
-)
+);
 ```
 ## PayIn
 Accept payment from mobile money
@@ -49,7 +49,7 @@ Accept payment from mobile money
 
 Example
 ```dart
-import 'package:adjemin_gateway_sdk/adjemin_gateway_sdk.dart';
+import 'package:adjeminpay_flutter_sdk/adjeminpay_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -123,15 +123,11 @@ class _HomeScreenState extends State<HomeScreen> {
 
           final String merchantTransId = uuid.v4().split('-').last;
           print("merchantTransId => $merchantTransId");
-          final String baseUrl = "https://api.adjem.in";
 
           final GatewayTransaction? result = await Navigator.push(context,
               MaterialPageRoute(builder: (context)=> OperatorPickerWidget(
-                baseUrl: baseUrl,
                 clientId: dotenv.env['CLIENT_ID']!,
                 clientSecret: dotenv.env['CLIENT_SECRET']!,
-                sellerUsername: dotenv.env['SELLER_USERNAME']!,
-                paymentType: 'gateway',
                 title: 'Payer une commande',
                 description: 'Paiement apport initial',
                 amount: 100,
