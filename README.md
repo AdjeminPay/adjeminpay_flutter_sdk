@@ -1,6 +1,6 @@
-# Integrate Adjemin Flutter SDK
+# Integrate AdjeminPay Flutter SDK
 
-Gateway sdk to allow payment and transfer in Adjemin app
+AdjeminPay allows payment and transfer in your app
 
 <img src="https://raw.githubusercontent.com/AdjeminPay/adjeminpay_flutter_sdk/main/picture/payment.png" alt="screenshot"/>
 
