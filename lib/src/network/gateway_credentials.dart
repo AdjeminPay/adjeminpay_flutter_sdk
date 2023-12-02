@@ -58,7 +58,7 @@ class GatewayCredentials implements IGatewayCredentials{
    required String clientId,
    required String clientSecret}) async{
 
-   final url = Uri.parse("$baseUrl/v3/oauth/token");
+   final url = Uri.parse("$baseUrl/oauth/token");
 
    final response = await post(url,
        body: {

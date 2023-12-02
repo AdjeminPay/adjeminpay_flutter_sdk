@@ -8,7 +8,7 @@ class GatewayTransaction {
 
   String? merchantAppId;
   String? reference;
-  double? amount;
+  num? amount;
   String? currencyCode;
   String? recipientNumber;
   String? recipientName;
@@ -16,14 +16,14 @@ class GatewayTransaction {
   String? recipientPhotoUrl;
   String? designation;
   String? status;
-  double? fees;
+  num? fees;
   String? paymentUrl;
   String? merchantTransId;
   String? merchantTransData; //merchant_trans_data
   bool? isPayin;
   bool? isWaiting;
   bool? isCompleted;
-  int? merchantId;
+  String? merchantId;
   String? failureReason; //failure_reason
   String? operatorTransUrl; //operator_trans_url
   String? servicePaymentUrl; //service_payment_url
@@ -33,7 +33,7 @@ class GatewayTransaction {
   String? cancelUrl;
   String? updatedAt;
   String? createdAt;
-  int? id;
+  String? id;
 
 
   GatewayTransaction({

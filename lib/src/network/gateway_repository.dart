@@ -175,6 +175,8 @@ class GatewayRepository implements IGatewayRepository{
 
     final authCredential = await GatewayCredentials().getAccessToken(baseUrl: BASE_URL, clientId: clientId, clientSecret: clientSecret);
 
+    //print("createCheckout() ==>>> authCredential ${authCredential.accessToken}");
+
     final requestBody = <String, dynamic>{
       "amount":currencyCode.toUpperCase()=="XOF"?amount.toInt():amount,
       "currency_code":currencyCode,
@@ -225,7 +227,7 @@ class GatewayRepository implements IGatewayRepository{
         }
     );
 
-    print("makePayment() ==>>> BODY ${response.body}");
+    print("createCheckout() ==>>> BODY ${response.body}");
 
     if(response.statusCode == 200){
       final Map<String, dynamic> json  = jsonDecode(response.body);

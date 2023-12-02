@@ -324,7 +324,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
         customerEmail: widget.customer?.email,
         customerFirstName: widget.customer?.firstName,
         customerLastName: widget.customer?.lastName,
-        customerRecipientNumber: "${widget.customer?.dialCode}${widget.customer?.phoneNumber}"
+        customerRecipientNumber: widget.customer?.dialCode!=null && widget.customer?.phoneNumber != null ? "${widget.customer?.dialCode}${widget.customer?.phoneNumber}":null
     ).then((value){
 
 
@@ -372,7 +372,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
         clientSecret: widget.clientSecret ,
         paymentMethodCode: gatewayOperator.slug!,
         merchantTransId: widget.merchantTransactionId,
-        customerRecipientNumber: customer.phoneNumber!,
+        customerRecipientNumber: widget.customer?.dialCode!=null && widget.customer?.phoneNumber != null ? "${widget.customer?.dialCode}${widget.customer?.phoneNumber}":'',
         customerEmail: customer.email,
         customerFirstName: customer.firstName,
         customerLastName: customer.lastName,
