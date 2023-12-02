@@ -11,7 +11,7 @@ Add the adjeminpay_flutter_sdk package as a dependancy in your `pubspec.yaml` fi
     dependencies:
     flutter:
         sdk: flutter
-    adjeminpay_flutter_sdk: ^3.0.0
+    adjeminpay_flutter_sdk: ^3.0.1
 ```
 ## 3. How to use
 You must use `OperatorPickerWidget`
