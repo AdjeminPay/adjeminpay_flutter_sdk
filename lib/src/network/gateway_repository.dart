@@ -1,6 +1,7 @@
 import 'dart:convert';
 
-import 'package:adjeminpay_flutter_sdk/adjeminpay_flutter_sdk.dart';
+
+import 'package:adjeminpay_flutter_sdk/src/models/gateway_operator.dart';
 import 'package:adjeminpay_flutter_sdk/src/models/gateway_transaction.dart';
 import 'package:adjeminpay_flutter_sdk/src/network/gateway_credentials.dart';
 import 'package:adjeminpay_flutter_sdk/src/network/gateway_exception.dart';
@@ -174,8 +175,6 @@ class GatewayRepository implements IGatewayRepository{
     String? cancelUrl,})async {
 
     final authCredential = await GatewayCredentials().getAccessToken(baseUrl: BASE_URL, clientId: clientId, clientSecret: clientSecret);
-
-    //print("createCheckout() ==>>> authCredential ${authCredential.accessToken}");
 
     final requestBody = <String, dynamic>{
       "amount":currencyCode.toUpperCase()=="XOF"?amount.toInt():amount,

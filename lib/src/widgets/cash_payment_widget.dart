@@ -1,6 +1,5 @@
 import 'package:adjeminpay_flutter_sdk/src/models/customer.dart';
 import 'package:adjeminpay_flutter_sdk/src/models/gateway_operator.dart';
-import 'package:adjeminpay_flutter_sdk/src/network/gateway_repository.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_progress_widget.dart';
@@ -90,7 +89,7 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
               },
               style: ButtonStyle(
                   backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
-                  textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.button?.copyWith(
+                  textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.labelLarge?.copyWith(
                       color: Colors.white,
                       fontSize: 19
                   ))
@@ -104,7 +103,7 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
             alignment: Alignment.center,
             margin: EdgeInsets.symmetric(horizontal: 16.0),
             child: Text("L'étape suivante déclenchera une demande de validation par USSD de l'opérateur ${widget.operator.name}",
-              style: Theme.of(context).textTheme.caption?.copyWith(
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
                   color: Colors.black
               ),
             ),
@@ -138,11 +137,11 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
               children: [
                 Container(
                   alignment: Alignment.topLeft,
-                  child: Text("${widget.customer.firstName} ${widget.customer.lastName}", style: Theme.of(context).textTheme.subtitle1,),
+                  child: Text("${widget.customer.firstName} ${widget.customer.lastName}", style: Theme.of(context).textTheme.titleMedium,),
                 ),
                 Container(
                   alignment: Alignment.topLeft,
-                  child: Text(customer.email != null && customer.email!.isNotEmpty?"${customer.email}":"${customer.phoneNumber}", style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                  child: Text(customer.email != null && customer.email!.isNotEmpty?"${customer.email}":"${customer.phoneNumber}", style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       color: Colors.grey[500]
                   ),),
                 )
@@ -173,7 +172,7 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
             height: 50,
             alignment: Alignment.center,
             child: Text("${widget.amount} ${widget.operator.currencyCode}",
-             style: Theme.of(context).textTheme.headline4?.copyWith(
+             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                fontSize: 30.0,
                color: Colors.black
              ),
@@ -193,7 +192,7 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
           Container(
             alignment: Alignment.topLeft,
             child: Text("Payer avec",
-            style: Theme.of(context).textTheme.headline5?.copyWith(
+            style: Theme.of(context).textTheme.headlineSmall?.copyWith(
               color: Colors.grey
             ),
             ),
@@ -210,12 +209,12 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
                       Container(
                         alignment: Alignment.topLeft,
                         child: Text("${widget.operator.name}",
-                          style: Theme.of(context).textTheme.headline6,),
+                          style: Theme.of(context).textTheme.titleLarge,),
                       ),
                       widget.operator.name!.toLowerCase().contains('carte')?const SizedBox():Container(
                         alignment: Alignment.topLeft,
                         child: Text("+${widget.customer.dialCode} ${widget.customer.phoneNumber}",
-                         style: Theme.of(context).textTheme.headline6?.copyWith(
+                         style: Theme.of(context).textTheme.titleLarge?.copyWith(
                            color: Colors.grey[500]
                          ),
                         ),
@@ -224,7 +223,7 @@ class _CashPaymentWidgetState extends State<CashPaymentWidget> {
                       Container(
                         alignment: Alignment.topLeft,
                         child: Text("Ce numéro de téléphone sera débité du montant à payer",
-                          style: Theme.of(context).textTheme.caption?.copyWith(
+                          style: Theme.of(context).textTheme.bodySmall?.copyWith(
                               color: Colors.grey[500]
                           ),
                         ),

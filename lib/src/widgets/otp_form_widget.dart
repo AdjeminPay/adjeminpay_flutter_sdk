@@ -2,7 +2,7 @@ import 'package:adjeminpay_flutter_sdk/adjeminpay_flutter_sdk.dart';
 import 'package:flutter/material.dart';
 import 'package:otp_text_field/otp_text_field.dart';
 import 'package:otp_text_field/style.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class OtpFormWidget extends StatefulWidget {
 
@@ -43,7 +43,7 @@ class _OtpFormWidgetState extends State<OtpFormWidget> {
             SizedBox(height: 20.0,),
             Container(
               child: Text("Obtenez un code validation en cliquant sur", style: Theme.of(context)
-                .textTheme.subtitle1,),
+                .textTheme.titleMedium,),
             ),
             SizedBox(height: 20.0,),
             Container(
@@ -60,7 +60,7 @@ class _OtpFormWidgetState extends State<OtpFormWidget> {
                   children: [
                     Icon(Icons.phone),
                     SizedBox(width: 20.0,),
-                    Text("#144*82#", style: Theme.of(context).textTheme.headline5!.copyWith(
+                    Text("#144*82#", style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                         fontWeight: FontWeight.bold,
                     ),)
                   ],
@@ -71,7 +71,7 @@ class _OtpFormWidgetState extends State<OtpFormWidget> {
             Container(
               padding: EdgeInsets.symmetric(horizontal: 16.0),
               child: Text("Entrez le code reçu  dans le champs ci-dessous:", style: Theme.of(context)
-                  .textTheme.subtitle1,),
+                  .textTheme.titleMedium,),
             ),
 
 
@@ -83,7 +83,7 @@ class _OtpFormWidgetState extends State<OtpFormWidget> {
                 textFieldAlignment: MainAxisAlignment.spaceAround,
                 fieldWidth:( MediaQuery.of(context).size.width/4) - 40,
                 fieldStyle: FieldStyle.underline,
-                style: Theme.of(context).textTheme.headline3!.copyWith(
+                style: Theme.of(context).textTheme.displaySmall!.copyWith(
                   color: Colors.black
                 ),
                 onCompleted: (pin) {
@@ -113,8 +113,8 @@ class _OtpFormWidgetState extends State<OtpFormWidget> {
       path: phoneNumber,
     );
 
-    if (await canLaunch(launchUri.toString())) {
-      await launch(launchUri.toString());
+    if (await canLaunchUrlString(launchUri.toString())) {
+      await launchUrlString(launchUri.toString());
     }
 
 

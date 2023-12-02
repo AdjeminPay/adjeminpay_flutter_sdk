@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:adjeminpay_flutter_sdk/adjeminpay_flutter_sdk.dart';
+
 import 'package:adjeminpay_flutter_sdk/src/models/customer.dart';
+import 'package:adjeminpay_flutter_sdk/src/models/gateway_operator.dart';
 import 'package:adjeminpay_flutter_sdk/src/models/gateway_transaction.dart';
 import 'package:adjeminpay_flutter_sdk/src/models/payment_event.dart';
 import 'package:adjeminpay_flutter_sdk/src/models/payment_state.dart';
@@ -10,7 +11,7 @@ import 'package:adjeminpay_flutter_sdk/src/network/gateway_exception.dart';
 import 'package:adjeminpay_flutter_sdk/src/network/gateway_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'cash_payment_widget.dart';
 import 'custom_progress_widget.dart';
@@ -236,7 +237,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
             alignment: Alignment.topLeft,
             padding: const EdgeInsets.all(8.0),
             child: Text("Sélectionnez un moyen de paiement",
-            style: Theme.of(context).textTheme.subtitle1,
+            style: Theme.of(context).textTheme.titleMedium,
             ),
           ),
           Column(
@@ -410,7 +411,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
 
         }
 
-        //TODO carte bancaire
+        //Carte bancaire
         if(gatewayOperator.name!.toLowerCase().contains('carte')){
 
           _runTransactionChecker(gatewayOperator, widget.merchantTransactionId);
@@ -498,7 +499,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
                 const SizedBox(width: 20,),
                 Container(
                   child: Text("Transaction en cours",
-                    style: Theme.of(context).textTheme.headline5,),
+                    style: Theme.of(context).textTheme.headlineSmall,),
                 ),
                 const SizedBox(width: 50,),
                 GestureDetector(
@@ -515,14 +516,14 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
             ),
             const SizedBox(height: 10,),
             Text("${_paymentOperatorSelected!.name!}",
-            style: Theme.of(context).textTheme.headline6,),
+            style: Theme.of(context).textTheme.titleLarge,),
             const SizedBox(height: 20,),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8.0),
               alignment: Alignment.center,
               child: Text(getLoadingMessage(widget.isPayIn,_paymentOperatorSelected!, _isWaitingAcceptation),
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.bodyText2?.copyWith(
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                   fontSize: 16
                 ),),
             ),
@@ -758,11 +759,11 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
           children: [
 
             Container(
-              child: Text("Erreur rencontrée",style: Theme.of(context).textTheme.headline6),
+              child: Text("Erreur rencontrée",style: Theme.of(context).textTheme.titleLarge),
             ),
             const SizedBox(height: 20,),
             Container(
-              child: Text(message,style: Theme.of(context).textTheme.bodyText1),
+              child: Text(message,style: Theme.of(context).textTheme.bodyLarge),
             ),
             const SizedBox(height: 20,),
             Container(
@@ -775,7 +776,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
-                    textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.button?.copyWith(
+                    textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: Colors.white,
                         fontSize: 19
                     ))
@@ -799,11 +800,11 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
         child: Column(
           children: [
             Container(
-              child: Text("$title",style: Theme.of(context).textTheme.headline6),
+              child: Text("$title",style: Theme.of(context).textTheme.titleLarge),
             ),
             const SizedBox(height: 20,),
             Container(
-              child: Text(message,style: Theme.of(context).textTheme.bodyText1),
+              child: Text(message,style: Theme.of(context).textTheme.bodyLarge),
             ),
             const SizedBox(height: 20,),
             Container(
@@ -816,7 +817,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.secondary),
-                    textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.button?.copyWith(
+                    textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: Colors.white,
                         fontSize: 19
                     ))
@@ -835,7 +836,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
                 },
                 style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all(Theme.of(context).colorScheme.primary),
-                    textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.button?.copyWith(
+                    textStyle: MaterialStateProperty.all(Theme.of(context).textTheme.labelLarge?.copyWith(
                         color: Colors.white,
                         fontSize: 19
                     ))
@@ -852,7 +853,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
   }
 
    _openPaymentUrl(String paymentUrl) async{
-     await launch(paymentUrl);
+     await launchUrlString(paymentUrl);
   }
 
 }
