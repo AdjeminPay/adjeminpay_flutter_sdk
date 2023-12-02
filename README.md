@@ -2,7 +2,7 @@
 
 AdjeminPay allows payment and transfer in your app
 
-<img src="https://raw.githubusercontent.com/AdjeminPay/adjeminpay_flutter_sdk/main/picture/payment.png" alt="screenshot"/>
+<img src="https://raw.githubusercontent.com/AdjeminPay/adjeminpay_flutter_sdk/main/picture/screenshot_20231202_151457.png" alt="screenshot"/>
 
 ## 1. Add the package to your project
 Add the adjeminpay_flutter_sdk package as a dependancy in your `pubspec.yaml` file.
@@ -36,7 +36,7 @@ final view = OperatorPickerWidget(
         photoUrl: "https://i.imgur.com/dAApjNt.jpg",
         dialCode: "225",
         phoneNumber: "0500000000",
-        email: "angebagui@gmail.com"
+        email: "paulkoffi@gmail.com"
     ),
 );
 ```
@@ -141,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     photoUrl: "https://i.imgur.com/dAApjNt.jpg",
                     dialCode: "225",
                     phoneNumber: "0500000000",
-                    email: "angebagui@gmail.com"
+                    email: "paulkoffi@gmail.com"
                 ),
               ))
           );

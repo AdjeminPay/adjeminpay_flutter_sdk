@@ -78,12 +78,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 isPayIn: true,
                 countryCode: Country.CI,
                 customer: const Customer(
-                    firstName: "Ange",
-                    lastName: "Bagui",
-                    photoUrl: "https://i.imgur.com/dAApjNt.jpg",
+                    firstName: "Paul",
+                    lastName: "Koffi",
                     dialCode: "225",
-                    phoneNumber: "0556888385",
-                    email: "angebagui@gmail.com"
+                    phoneNumber: "0500000000",
+                    email: "paulkoffi@gmail.com"
                 ),
               ))
           );
