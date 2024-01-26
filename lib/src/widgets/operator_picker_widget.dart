@@ -244,30 +244,41 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
             children: elements.map((e) => GestureDetector(
               onTap: ()async{
                 //Navigator.of(context).pop(e);
-
-                Customer? mCustomer;
                 print("Operator => ${e.name!.toLowerCase().contains('carte bancaire')}");
                 if(e.name!.toLowerCase().contains('carte')){
-                  mCustomer = widget.customer;
+
+                    if(widget.customer != null){
+
+                      if(widget.isPayIn){
+                        await _processPayIn(e,widget.customer!);
+                      }else{
+                        await _processPayOut(e,widget.customer!);
+                      }
+                    }
                 }else{
-                  mCustomer  = await Navigator.push(context,
+                  final Customer? customerNew  = await Navigator.push(context,
                       MaterialPageRoute(builder: (context)=> CustomerFormWidget(
                           customer:widget.customer
                       ))
                   );
-                }
 
+                  print("customerNew =>> 225${customerNew!.phoneNumber}");
 
-                if(mCustomer != null){
+                  if(customerNew != null){
 
-                  if(widget.isPayIn){
-                    await _processPayIn(e,mCustomer);
-                  }else{
-                    await _processPayOut(e, mCustomer);
+                    if(widget.isPayIn){
+                      await _processPayIn(e,customerNew);
+                    }else{
+                      await _processPayOut(e,customerNew);
+                    }
                   }
 
-
                 }
+
+
+
+
+
 
 
               },
@@ -373,7 +384,7 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
         clientSecret: widget.clientSecret ,
         paymentMethodCode: gatewayOperator.slug!,
         merchantTransId: widget.merchantTransactionId,
-        customerRecipientNumber: widget.customer?.dialCode!=null && widget.customer?.phoneNumber != null ? "${widget.customer?.dialCode}${widget.customer?.phoneNumber}":'',
+        customerRecipientNumber: customer.dialCode!=null && customer.phoneNumber != null ? "${customer.dialCode}${customer.phoneNumber}":'',
         customerEmail: customer.email,
         customerFirstName: customer.firstName,
         customerLastName: customer.lastName,
@@ -388,7 +399,6 @@ class _OperatorPickerWidgetState extends State<OperatorPickerWidget> {
         }
 
         if(gatewayOperator.name!.toLowerCase().contains('mtn')){
-
 
           _runTransactionChecker(gatewayOperator, widget.merchantTransactionId);
         }

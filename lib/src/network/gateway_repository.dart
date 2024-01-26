@@ -289,6 +289,9 @@ class GatewayRepository implements IGatewayRepository{
     }
 
     final url = Uri.parse("$API_URL/merchants/complete_checkout/$merchantTransId");
+
+    print("completeCheckout() RequestBody: ${requestBody}");
+
     final Response response = await put(
         url,
         body: jsonEncode(requestBody),
